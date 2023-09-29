@@ -32,7 +32,7 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
        name: buildArtifact
-       path: target/*.war
+       path: target/*.jar
     - name: Storing manifests in GitHub
       uses: actions/upload-artifact@v3
       with:
