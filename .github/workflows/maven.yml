@@ -17,7 +17,7 @@ on:
 
 jobs:
   build:
-    uses: sumitanandgupta/SpringBootDocker/.github/workflows/maven-reusable.yml@master
+    uses: sumitanandgupta/SpringBootDocker/.github/workflows/maven_reusable.yml@master
         
   deploy: 
     runs-on: ubuntu-latest
