@@ -45,4 +45,4 @@ jobs:
       with:
         push: true
         context: .
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}springboot:latest 
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ vars.APP_NAME }}:latest 
