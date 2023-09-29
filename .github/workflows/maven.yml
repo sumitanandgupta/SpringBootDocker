@@ -48,7 +48,7 @@ jobs:
       with:
         push: true
         context: .
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/planview:latest 
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/springboot:latest 
         
   deploy: 
     runs-on: ubuntu-latest
