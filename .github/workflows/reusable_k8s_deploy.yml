@@ -1,0 +1,54 @@
+# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
+
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+name: Java CI with Maven
+
+on:
+ workflow_dispatch:
+ workflow_call:
+     secrets:
+        DC_HOST:
+          required: true
+        DC_USER:
+          required: true
+        DC_PASS:
+          required: true
+        DC_PORT:
+          required: true  
+jobs:     
+  deploy: 
+    runs-on: ubuntu-latest
+    steps:
+    - name: Downloading manifests from GitHub
+      uses: actions/download-artifact@v3
+      with:
+       name: k8smanifestsArtifacts
+
+    - name: Deploy Application using SSH
+      uses: cross-the-world/ssh-scp-ssh-pipelines@latest
+      env:
+       WELCOME: "ssh scp ssh pipelines"
+       LASTSSH: "Doing something after copying"
+      with:
+       host: ${{ secrets.DC_HOST }}
+       user: ${{ secrets.DC_USER }}
+       pass: ${{ secrets.DC_PASS }}
+       port: ${{ secrets.DC_PORT }}
+       connect_timeout: 10s
+       first_ssh: |
+        rm -rf /tmp/Docker
+        mkdir -p /tmp/Docker
+       scp: |
+        '*.yaml' => /tmp/Docker/
+       last_ssh: |
+        cd /tmp/Docker/
+        kubectl apply -f .
+        
+       #host: ${{ secrets.DC_HOST }}
+       #user: ${{ secrets.DC_USER }}
+       #pass: ${{ secrets.DC_PASS }}
+       #port: ${{ secrets.DC_PORT }}
