@@ -11,13 +11,13 @@ on:
  workflow_dispatch:
  workflow_call:
      secrets:
-        DC_HOST:
+        KS_HOST:
           required: true
-        DC_USERNAME:
+        KS_HOST_USERNAME:
           required: true
-        DC_PASSWORD:
+        KS_HOST_PASSWORD:
           required: true
-        DC_PORT:
+        KS_HOST_PORT:
           required: true  
 jobs:     
   deploy: 
@@ -34,10 +34,10 @@ jobs:
        WELCOME: "ssh scp ssh pipelines"
        LASTSSH: "Doing something after copying"
       with:
-       host: ${{ secrets.DC_HOST }}
-       user:  ${{ secrets.DC_USERNAME }}
-       pass: ${{ secrets.DC_PASSWORD }}
-       port:  ${{ secrets.DC_PORT }}
+       host: ${{ secrets.KS_HOST }}
+       user:  ${{ secrets.KS_HOST_USERNAME }}
+       pass: ${{ secrets.KS_HOST_PASSWORD }}
+       port:  ${{ secrets.KS_HOST_PORT }}
        connect_timeout: 10s
        first_ssh: |
         rm -rf /tmp/Docker
