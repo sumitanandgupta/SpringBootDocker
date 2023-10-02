@@ -35,7 +35,7 @@ jobs:
        LASTSSH: "Doing something after copying"
       with:
        host: ${{ secrets.DC_HOST }}
-       user: ${{ secrets.DC_USER }}
+       user: 'sumitgupta5voda'
        pass: 'a5voda0A@gk5a2'
        port: 42006
        connect_timeout: 10s
