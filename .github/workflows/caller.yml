@@ -4,8 +4,16 @@ on:
   push:
 
 jobs:
-  Reusable-caller-job:
+  Reusable-build-job:
     uses: ./.github/workflows/maven_reusable.yml
     secrets:
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+  Reusable-deploy-job:
+    uses: ./.github/workflows/reusable_k8s_deploy.yml
+    needs: Reusable-build-job
+    secrets:
+      DC_HOST: ${{ secrets.DC_HOST }}
+      DC_USER: ${{ secrets.DC_USER }}
+      DC_PASS: ${{ secrets.DC_PASS }}
+      DC_PORT: ${{ secrets.DC_PORT }}
