@@ -13,9 +13,9 @@ on:
      secrets:
         DC_HOST:
           required: true
-        DC_USER:
+        DC_USERNAME:
           required: true
-        DC_PASS:
+        DC_PASSWORD:
           required: true
         DC_PORT:
           required: true  
@@ -35,9 +35,9 @@ jobs:
        LASTSSH: "Doing something after copying"
       with:
        host: ${{ secrets.DC_HOST }}
-       user:  ${{ secrets.DC_USER }}
-       pass: 'a5voda0A@gk5a2'
-       port: 42006
+       user:  ${{ secrets.DC_USERNAME }}
+       pass: ${{ secrets.DC_PASSWORD }}
+       port:  ${{ secrets.DC_PORT }}
        connect_timeout: 10s
        first_ssh: |
         rm -rf /tmp/Docker
@@ -49,6 +49,6 @@ jobs:
         kubectl apply -f .
         
        #host: ${{ secrets.DC_HOST }}
-       #user: ${{ secrets.DC_USER }}
-       #pass: ${{ secrets.DC_PASS }}
+       #user: ${{ secrets.DC_USERNAME }}
+       #pass: ${{ secrets.DC_PASSWORD }}
        #port: ${{ secrets.DC_PORT }}
