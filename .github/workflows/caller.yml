@@ -14,7 +14,7 @@ jobs:
     uses: ./.github/workflows/reusable_k8s_deploy.yml
     needs: Reusable-build-job
     secrets:
-      DC_HOST: ${{ secrets.DC_HOST }}
-      DC_USER: ${{ secrets.DC_USERNAME }}
-      DC_PASS: ${{ secrets.DC_PASSWORD }}
-      DC_PORT: ${{ secrets.DC_PORT }}
+      DC_HOST: ${{ secrets.KS_HOST }}
+      DC_USER: ${{ secrets.KS_HOST_USERNAME }}
+      DC_PASS: ${{ secrets.KS_HOST_PASSWORD }}
+      DC_PORT: ${{ secrets.KS_HOST_PORT }}
