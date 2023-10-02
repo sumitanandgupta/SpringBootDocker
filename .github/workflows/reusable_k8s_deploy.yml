@@ -35,9 +35,9 @@ jobs:
        LASTSSH: "Doing something after copying"
       with:
        host: ${{ secrets.DC_HOST }}
-       user: 'sumitgupta5voda'
-       pass: 'a5voda0A@gk5a2'
-       port: 42006
+       user: ${{ secrets.DC_USER }}
+       pass: ${{ secrets.DC_PASS }}
+       port: ${{ secrets.DC_PORT }}
        connect_timeout: 10s
        first_ssh: |
         rm -rf /tmp/Docker
