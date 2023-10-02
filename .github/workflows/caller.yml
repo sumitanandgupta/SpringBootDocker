@@ -15,6 +15,6 @@ jobs:
     needs: Reusable-build-job
     secrets:
       DC_HOST: ${{ secrets.DC_HOST }}
-      DC_USER: ${{ secrets.DC_USER }}
-      DC_PASS: ${{ secrets.DC_PASS }}
+      DC_USER: ${{ secrets.DC_USERNAME }}
+      DC_PASS: ${{ secrets.DC_PASSWORD }}
       DC_PORT: ${{ secrets.DC_PORT }}
