@@ -2,6 +2,7 @@ name: Reusable Workflow Caller
 
 on:
   push:
+  workflow_dispatch:
 
 jobs:
   Reusable-build-job:
