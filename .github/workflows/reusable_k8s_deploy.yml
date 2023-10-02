@@ -34,7 +34,7 @@ jobs:
        WELCOME: "ssh scp ssh pipelines"
        LASTSSH: "Doing something after copying"
       with:
-       host: 'sumitgupta5vodasl0034.simplilearnlabs.com'
+       host: ${{ secrets.DC_HOST }}
        user: 'sumitgupta5voda'
        pass: 'a5voda0A@gk5a2'
        port: 42006
