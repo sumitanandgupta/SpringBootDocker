@@ -6,7 +6,7 @@ on:
 
 jobs:
   Reusable-build-job:
-    uses: ./.github/workflows/maven_reusable.yml
+    uses: ./.github/workflows/maven_build_reusable.yml
     secrets:
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
