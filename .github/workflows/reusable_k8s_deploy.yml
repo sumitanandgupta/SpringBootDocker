@@ -1,5 +1,5 @@
 #Reusable workflow to deploy application on K8s cluster in AWS2 Lab
-name: Java CI with Maven
+name: Reusable Deploy in K8s on AWS
 
 on:
  workflow_dispatch:
